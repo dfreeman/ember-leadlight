@@ -36,5 +36,8 @@ test('attempting to activate a missing document', function(assert) {
     new Pane(['one', 'two', 'three'], 'two')
   ]);
 
-  assert.throws(() => activate(layout, [0], 'four'), /Unable to activate/);
+  const updated = activate(layout, [0], 'four');
+
+  assert.equal(updated.children[0].activeDocument, 'four');
+  assert.deepEqual(updated.children[0].documents, ['one', 'two', 'three', 'four']);
 });
