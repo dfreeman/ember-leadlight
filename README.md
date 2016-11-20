@@ -1,4 +1,4 @@
-# ember-leadlight
+# ember-leadlight [![Build Status](https://travis-ci.org/dfreeman/ember-leadlight.svg?branch=master)](https://travis-ci.org/dfreeman/ember-leadlight)
 
 This README outlines the details of collaborating on this Ember addon.
 
