@@ -1,0 +1,30 @@
+{{#each paneContainer.children as |child index|}}
+  {{#if child.children}}
+    {{#-leadlight-axis
+      local-class='item'
+      paneContainer=child
+      rootActions=rootActions
+      parentPath=(-leadlight-path parentPath index)
+      as |pane panePath|
+    }}
+      {{yield pane panePath}}
+    {{/-leadlight-axis}}
+  {{else with (-leadlight-path parentPath index) as |path|}}
+    <div local-class="pane-anchor">
+      <div local-class="pane-content">
+        {{yield (hash
+          documents=child.documents
+          activeDocument=child.activeDocument
+          close=(action rootActions.close path null)
+          focus=(action rootActions.focusPath path)
+          source=(component '-leadlight-source'
+            path=path
+            dragStarted=(action rootActions.sourceDragStarted)
+            dragEnded=(action rootActions.sourceDragEnded)
+            activate=(action rootActions.activateDocument)
+          )
+        )}}
+      </div>
+    </div>
+  {{/if}}
+{{/each}}

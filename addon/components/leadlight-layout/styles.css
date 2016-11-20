@@ -1,0 +1,23 @@
+.shadow {
+  background-color: #000;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+
+  z-index: -1;
+  transform-origin: top left;
+  transition:
+    250ms opacity ease-in-out;
+}
+
+.shadow.dragging {
+  z-index: 1;
+  opacity: 0.3;
+  transition:
+    250ms opacity ease-in-out,
+    250ms transform ease-in-out;
+}

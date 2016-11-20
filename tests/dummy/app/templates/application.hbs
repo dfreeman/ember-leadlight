@@ -1,0 +1,31 @@
+{{#leadlight-layout panes=panes local-class='main-layout' update=(action 'layoutChanged') as |layout|}}
+  <div local-class="sidebar">
+    {{#each documents key="title" as |document|}}
+      {{#layout.source document=document title=document.title}}
+        {{document.title}}
+      {{/layout.source}}
+    {{/each}}
+  </div>
+
+  {{#layout.panes local-class='document-root' as |pane|}}
+    <div local-class="document">
+      <div local-class="tab-bar">
+        {{#each pane.documents as |document|}}
+          {{#pane.source
+            document=document
+            title=document.title
+            local-class=(concat 'tab' (if (eq document pane.activeDocument) ' active'))
+          }}
+            <div local-class="tab-title">{{document.title}}</div>
+          {{/pane.source}}
+        {{/each}}
+      </div>
+
+      {{#if pane.activeDocument}}
+        <div local-class="content">{{pane.activeDocument.content}}</div>
+      {{else}}
+        <div local-class="close-message" onclick={{action pane.close}}>(Click to Close Pane)</div>
+      {{/if}}
+    </div>
+  {{/layout.panes}}
+{{/leadlight-layout}}

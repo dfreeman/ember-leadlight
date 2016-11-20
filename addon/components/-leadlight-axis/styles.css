@@ -1,0 +1,30 @@
+.pane-axis {
+  position: relative;
+  display: flex;
+  flex: 1 0;
+}
+
+.vertical {
+  flex-flow: column;
+  min-width: 0;
+}
+
+.horizontal {
+  flex-flow: row;
+  min-height: 0;
+}
+
+.pane-anchor {
+  position: relative;
+  flex: 1;
+}
+
+.pane-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  overflow: auto;
+}

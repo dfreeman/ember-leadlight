@@ -1,0 +1,23 @@
+{{yield (hash
+  close=(action 'close')
+
+  source=(component '-leadlight-source'
+    activate=(action 'activateDocument')
+    dragStarted=(action 'sourceDragStarted')
+    dragEnded=(action 'sourceDragEnded')
+  )
+
+  panes=(component '-leadlight-axis'
+    paneContainer=panes
+    rootIdentifier=layoutIdentifier
+    rootActions=(hash
+      close=(action 'close')
+      focusPath=(action 'focusPath')
+      activateDocument=(action 'activateDocument')
+      sourceDragStarted=(action 'sourceDragStarted')
+      sourceDragEnded=(action 'sourceDragEnded')
+    )
+  )
+)}}
+
+<div local-class="shadow {{if dragging 'dragging'}}" style={{shadowStyle}}></div>

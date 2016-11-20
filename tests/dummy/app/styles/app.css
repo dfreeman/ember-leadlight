@@ -1,0 +1,10 @@
+html,
+body,
+body > :global(.ember-view) {
+  margin: 0;
+  height: 100%;
+}
+
+body > :global(.ember-view) {
+  display: flex;
+}
