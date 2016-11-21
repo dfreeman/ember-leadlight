@@ -10,11 +10,7 @@ cache:
   directories:
     - node_modules
 
-before_install:
-  - yarn global add bower phantomjs-prebuilt
-  - bower --version
-  - phantomjs --version
-
 install:
+  - yarn global add bower phantomjs-prebuilt
   - yarn
   - bower install
